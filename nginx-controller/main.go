@@ -1,3 +1,5 @@
+// import path for golang:onbuild support
+// import "github.com/nds-org/k8s-ingress-nginx"
 package main
 
 import (
