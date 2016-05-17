@@ -44,22 +44,27 @@ kubectl create -f terra-ingress.yaml
 1. Crete a wildcard certificate for test.ndslabs.org
 
 ```
-openssl genrsa 2048 > ndslabs.key
-openssl req -new -x509 -nodes -sha1 -days 3650 -key ndslabs.key > ndslabs.cert
+openssl genrsa 2048 > certs/ndslabs.key
+openssl req -new -x509 -nodes -sha1 -days 3650 -key certs/ndslabs.key > certs/ndslabs.cert
 #[enter *.ndslabs.org for the Common Name]
-openssl x509 -noout -fingerprint -text < ndslabs.cert > ndslabs.info
-cat ndslabs.cert ndslabs.key > ndslabs.pem
-chmod 400 ndslabs.key ndslabs.pem
+openssl x509 -noout -fingerprint -text < ndslabs.cert > certs/ndslabs.info
+cat certs/ndslabs.cert certs/ndslabs.key > certs/ndslabs.pem
+chmod 400 certs/ndslabs.key certs/ndslabs.pem
 ```
 
 1. Create a secret with SSL certificate and key
 ```
-./gensecret.sh
-kubectl create -f secret.yaml
+kubectl create secret generic ndslabs-ilb-secret --from-file=tls.crt=certs/ndslabs.cert --from-file=tls.key=certs/ndslabs.key --namespace=demo
+kubectl create secret generic ndslabs-ilb-secret --from-file=tls.crt=certs/ndslabs.cert --from-file=tls.key=certs/ndslabs.key --namespace=terra
 ```
 
 1. Create ingress rules for demo project with TLS
 
 ```
-kubectl create -f demo-ingress-tls.yaml
+kubectl create -f demo-ingress-tls.yaml --namespace=demo
+kubectl create -f demo-ingress-tls.yaml --namespace=terra
 ```
+
+1. Access the running services:
+* https://elk.demo.ndslabs.org
+* https://clowder.terra.ndslabs.org

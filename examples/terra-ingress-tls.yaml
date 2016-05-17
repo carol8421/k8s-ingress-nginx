@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ndsl-ingress
+  namespace: terra
+spec:
+  tls:
+  - hosts:
+    - clowder.terra.ndslabs.org
+    secretName: ndslabs-ilb-secret
+  rules:
+  - host: clowder.terra.ndslabs.org
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: srz4wj-clowder
+          servicePort: 9000
