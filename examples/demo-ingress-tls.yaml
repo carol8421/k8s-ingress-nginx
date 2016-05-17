@@ -6,8 +6,8 @@ metadata:
 spec:
   tls:
   - hosts:
-    - demo.ndslabs.org
-    secretName: ndslabs-secret
+    - elk.demo.ndslabs.org
+    secretName: ndslabs-ilb-secret
   rules:
   - host: elk.demo.ndslabs.org
     http:
