@@ -5,7 +5,7 @@ metadata:
   namespace: demo
 spec:
   rules:
-  - host: elk.demo.ndslabs.org
+  - host: elk.demo.test.ndslabs.org
     http:
       paths:
       - path: /

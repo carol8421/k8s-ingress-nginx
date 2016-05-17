@@ -6,10 +6,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - clowder.terra.ndslabs.org
+    - clowder.terra.test.ndslabs.org
     secretName: ndslabs-ilb-secret
   rules:
-  - host: clowder.terra.ndslabs.org
+  - host: clowder.terra.test.ndslabs.org
     http:
       paths:
       - path: /

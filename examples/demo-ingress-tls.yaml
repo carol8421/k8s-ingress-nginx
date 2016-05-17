@@ -6,10 +6,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - elk.demo.ndslabs.org
+    - elk.demo.test.ndslabs.org
     secretName: ndslabs-ilb-secret
   rules:
-  - host: elk.demo.ndslabs.org
+  - host: elk.demo.test.ndslabs.org
     http:
       paths:
       - path: /
