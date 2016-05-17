@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ndslabs-ingress
+  namespace: demo
+spec:
+  rules:
+  - host: elk.demo.ndslabs.org
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: stk5cp-kibana
+          servicePort: 5601
