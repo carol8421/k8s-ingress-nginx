@@ -21,4 +21,4 @@ make push
 
 ## Creating the load balancer and ingress rules
 
-See examples/README.md for instructions on deploying the NGINX load balancer and associated Ingress rules for NDS Labs
+See the [examples](examples/README.md) for instructions on deploying the NGINX load balancer and associated Ingress rules for NDS Labs
