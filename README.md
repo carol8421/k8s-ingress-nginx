@@ -1,16 +1,15 @@
-# NGINX Ingress Controller - Experimental
-
-NDSLabs related support in
-*  ndslabs
+# NGINX Ingress Controller for NDSLabs
 
 Implementation of [Ingress Controller](https://github.com/kubernetes/contrib/tree/master/ingress/controllers)
-for [NGINX](http://nginx.org/) and [NGINX Plus](https://www.nginx.com/products/):
+for [NGINX](http://nginx.org/) based on the [Kubernetes NGINX Ingress Controller](https://github.com/kubernetes/contrib/tree/master/ingress/)
 
-Based on 
-* [NGINX Controller](https://github.com/nginxinc/kubernetes-ingress)
+## Building
 
-Adapted for NDSLabs by
-* David Raila, raila@illinois.edu
+```
+cd controllers/nginx
+make controller
+make push
+```
 
-
-
+## Examples
+See examples/README.md for instructions on deploying the NGINX load balancer and associated Ingress rules for NDS Labs
